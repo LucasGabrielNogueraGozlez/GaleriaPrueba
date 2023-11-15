@@ -1,0 +1,416 @@
+
+
+    "token": "sdafdfasd-2345-43554-4534-345435435", //ORDER ID DE DELIVERY HERO
+
+    "code": "n0s1-w0k1", //ORDER DISPLAY-ID DE PEDIDOS YA
+
+    "comments": {
+
+        "customerComment": "Deprisa",
+
+        "vendorComment": "" //DEPRECADO
+
+    },
+
+    "createdAt": "2023-11-14T13:30:25.000Z",
+
+    "customer": {
+
+        "email": "asfgfgsdfgdsfgfd", //HASH DEL EMAIL DEL CLIENTE
+
+        "firstName": "Eugenio",
+
+        "lastName": "Derbez",
+
+        "mobilePhone": "480-570-1669",
+
+        "code": "dummy_customer_code", //DEPRECADO
+
+        "id": "dummy_customer_Id", //DEPRECADO
+
+        "mobilePhoneCountryCode": "", //DEPRECADO
+
+        "flags": [
+
+            // "PRO_SUBSCRIPTION" (Cliente con suscripcion Pro a Pedidos Ya)
+
+        ]
+
+    },
+
+    "delivery": {
+
+        "address": //NULA PARA DELIVERY DE PEDIDOS YA
+
+        {
+
+            "building": "425 Park Avenue",
+
+            "company": "Herbalife",
+
+            "city": "New York",
+
+            "deliveryArea": "Cerca del hospital",
+
+            "deliveryMainArea": "Manhattan",
+
+            "deliveryInstructions": "Tocar la puerta de la casa con puerta roja",
+
+            "entrance": "Puerta roja",
+
+            "flatNumber": "2052",
+
+            "floor": "1",
+
+            "intercom": " ", //CODIGO DEL INTERCOMUNICADOR PARA ABRIR LA PUERTA DEL EDIFICIO
+
+            "latitude": "",
+
+            "longitude": "",
+
+            "number": "67",
+
+            "postcode": "1267",
+
+            "street": "First Avenue (1st)"
+
+        },
+
+        "expectedDeliveryTime": "NULL", //PUEDE SER NULL EN ORDENES DE PEDIDOS YA O PICKUP
+
+        "expressDelivery": false, //SI ES EXPRESS, LA PLATAFORMA DEBE DEVOLVER EL DINERO SI SE PASA LA HORA
+
+        "riderPickupTime": "NULL" //NULO PARA ORDENES DE BK
+
+    },
+
+    "discounts": [
+
+        {
+
+            "name": "Second Order",
+
+            "amount": "10.00",
+
+            "type": "FIRST_ORDER", //DEPRECADO
+
+            "sponsorships": [
+
+                {
+
+                    "sponsor": "PLATFORM", //DE PEDIDOS YA
+
+                    "amount": "4"
+
+                },
+
+                {
+
+                    "sponsor": "VENDOR", //DE BK
+
+                    "amount": "4"
+
+                },
+
+                {
+
+                    "sponsor": "THIRD_PARTY", //DE OTRO
+
+                    "amount": "4"
+
+                }
+
+            ]
+
+        }
+
+    ],
+
+    "expeditionType": "delivery", //o "delivery", junto con riderPickupTime, identifican el tipo del pedido
+
+    "expiryDate": "2023-11-14T14:11:00.000Z", //limite para manejar con bk
+
+    "extraParameters": { //parametros extra de pedidos ya, consultar con el bro, ignorar por ahora
+
+        "property1": "string",
+
+        "property2": "string"
+
+    },
+
+    "localInfo": {
+
+        "countryCode": "EU",
+
+        "currencySymbol": "$",
+
+        "platform": "DoorDash",
+
+        "platformKey": "PYA_EU",
+
+        "currencySymbolPosition": "", //DEPRECADO
+
+        "currencySymbolSpaces": "", //DEPRECADO
+
+        "decimalDigits": "", //DEPRECADO
+
+        "decimalSeparator": "", //DEPRECADO
+
+        "email": "", //DEPRECADO
+
+        "phone": "", //DEPRECADO
+
+        "thousandsSeparator": "", //DEPRECADO
+
+        "website": "" //DEPRECADO
+
+    },
+
+    "payment": {
+
+        "status": "paid", // o "pending"
+
+        "type": "cash", //"card on delivery", "cash", "online"
+
+        "remoteCode": "online", //DEPRECADO
+
+        "requiredMoneyChange": "", //DEPRECADO
+
+        "vatId": "", //DEPRECADO
+
+        "vatName": "" //DEPRECADO
+
+    },
+
+    "test": true,
+
+    "shortCode": "69", //nro de pedido del dia del conductor
+
+    "preOrder": false, 
+
+    "pickup": { //null para pedidos delivery
+
+        "pickupTime":"NULL",
+
+        "pickupCode":"", //Opcional, para pickup o dine-in del cliente
+
+        "pickupAddress":"", //DEPRECADO
+
+        "pickupCity":"" //DEPRECADO
+
+    },
+
+    "platformRestaurant": {
+
+        "id": "2343243-2344-4324-2344-4234324324" //ID DE LOCAL BK EN PEDIDOS YA
+
+    },
+
+    "price": {
+
+        "deliveryFees": [ //Todas las tarifas
+
+            {
+
+                "name": "delivery",
+
+                "value": 1
+
+            }
+
+        ],
+
+        "grandTotal": "25.00", //
+
+        "minimumDeliveryValue": "3.99", //DEPRECADO
+
+        "payRestaurant": "15.00", //Solo para delivery de PedidosYa. Cantidad que el repartidor depe pagar en el restaurant al retirar el pedido.
+
+        "riderTip": "5.00",
+
+        "subTotal": "5.10", //DEPRECADO
+
+        "totalNet": "5.00", //tipo any, proveido por pedidos ya
+
+        "vatTotal": "0.50", //suma de todos los impuestos aplicados
+
+        "comission": "", //DEPRECADO
+
+        "containerCharge": "", //DEPRECADO
+
+        "deliveryFee": "1.00", //DEPRECADO
+
+        "collectFromCustomer": "1.10", //Monto a cobrar del cliente para delivery de BK
+
+        "discountAmountTotal": "3.00", //DEPRECADO
+
+        "deliveryFeeDiscount": "", //DEPRECADO
+
+        "serviceFeePercent": "", //DEPRECADO
+
+        "serviceFeeTotal": "", //DEPRECADO
+
+        "serviceTax": 0, //DEPRECADO
+
+        "serviceTaxValue": 0, //DEPRECADO
+
+        "differenceToMinimumDeliveryValue": "", //DEPRECADO
+
+        "vatVisible": true, //DEPRECADO
+
+        "vatPercent": "string" //DEPRECADO
+
+    },
+
+    "products": [
+
+        {
+
+            "categoryName": "Whoppers",
+
+            "name": "Whopper",
+
+            "paidPrice": "3.60",
+
+            "quantity": "string",
+
+            "remoteCode": "1000",
+
+            "selectedToppings": [
+
+                {
+
+                    "children": [], //array de otros selected toppings, nested hasta 5 veces
+
+                    "name": "EX Queso Suizo",
+
+                    "price": "0.45",
+
+                    "quantity": 1,
+
+                    "id": "ca89251d-2351-46ff-870b-a3d67ea43869", // ID DEL AGREGADO EN Pedidos Ya
+
+                    "remoteCode": "200204-agregar",
+
+                    "type": "PRODUCT", //o "VARIANT" o "EXTRA"
+
+                    "discounts": []
+
+                },
+
+                {
+
+                    "children": [],
+
+                    "name": "Sin Tomate",
+
+                    "price": "0",
+
+                    "quantity": 1,
+
+                    "id": "c0f222c9-00e4-4b3e-97c4-e9512042e578", // ID DEL QUITADO EN PLATAFORMA DEL PEDIDO
+
+                    "remoteCode": "26581-quitar",
+
+                    "type": "VARIANT",
+
+                    "discounts": []
+
+                }
+
+            ],
+
+            "unitPrice": "4.65",
+
+            "comment": "No se atrevan a ponerle tomate...",
+
+            "description": "", //DEPRECADO
+
+            "discountAmount": "", //DEPRECADO
+
+            "halfHalf": false, //DEPRECADO
+
+            "id": "ef979d0f-d546-45b6-9692-541e21480a07",// ID DEL WHOPPER EN Pedidos Ya
+
+            "selectedChoices": [], //DEPRECADO
+
+            "variation": { // NO USADO
+
+                "name": "Whopper"
+
+            },
+
+            "vatPercentage": "", //DEPRECADO
+
+            "discounts": [
+
+                {
+
+                    "name": "First order",
+
+                    "amount": "1.50",
+
+                    "sponsorships": [
+
+                        {
+
+                            "sponsor": "PLATFORM",
+
+                            "amount": "0.50"
+
+                        },
+
+                        {
+
+                            "sponsor": "VENDOR",
+
+                            "amount": "0.50"
+
+                        },
+
+                        {
+
+                            "sponsor": "THIRD_PARTY",
+
+                            "amount": "0.50"
+
+                        }
+
+                    ]
+
+                }
+
+            ]
+
+        }
+
+    ],
+
+    "corporateOrder": false, //DEPRECADO
+
+    "corporateTaxId": "4543534-5", //ID IMPOSITIVO
+
+    "integrationInfo": {}, //DEPRECADO
+
+    "mobileOrder": true, //DEPRECADO
+
+    "webOrder": false, //DEPRECADO
+
+    "vouchers": [], //DEPRECADO
+
+    "callbackUrls": { //URLS DE MANEJO DEL PEDIDO
+
+        "orderAcceptedUrl": "string",
+
+        "orderRejectedUrl": "string",
+
+        "orderPickedUpUrl": "string",
+
+        "orderPreparedUrl": "string"
+
+    }
+
+
+
+
+

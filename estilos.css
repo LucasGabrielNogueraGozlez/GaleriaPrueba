@@ -1,0 +1,191 @@
+/* Sidebar */
+.container {
+        margin-left: 3rem;
+}
+.main-content {
+        margin-left: 0; /* Inicialmente, sin margen para estar al lado de la sidebar oculta */
+        transition:  0.5s; /* Transición suave para el margen */
+}
+    
+    /* Cuando la sidebar se despliega, ajusta el margen para dejar espacio para la sidebar */
+.sidebar.open {
+        width: 250px; /* Ancho de la sidebar cuando está desplegada */
+        transition: 0.5s; /* Transición suave para el ancho */
+}
+    
+    /* Ajusta el margen izquierdo del contenido principal para que esté al lado de la sidebar desplegada */
+.sidebar.open + .main-content {
+        margin-left: 250px; /* Igual al ancho de la sidebar */
+        transition: 0.5s; /* Transición suave para el margen */
+}
+    
+.logo img {
+        max-width: 100px;
+        margin-right: 10px;     
+}
+.title {
+        flex: 1;
+}
+/* Paginación */
+.pagination {
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 5rem;
+}
+/* Botones */
+.botones-utilidades {
+        position: absolute;
+        bottom: 0;
+        padding: 1rem;
+        margin: 0;
+        right: 0;
+        display: flex;
+        margin-right: 5px;
+
+}
+.botones-utilidades button {
+        padding: .2rem;
+}
+.botones-utilidades a {
+        padding: .2rem;
+}
+ .btn-edit-description  {
+        color: gray;
+        background-color: transparent;
+ } 
+.delete-button {
+        border: thin;
+        background-color: transparent;  
+}
+.card-body {
+        position: relative;
+/* Otros estilos para el contenedor de la descripción */
+}
+
+.bi-trash3{
+        color: red ;
+        margin-left: 3px;
+}
+
+.bi-pencil-square{
+        margin-left: 3px;
+}
+
+.bi-download{
+        color: green ;
+        margin-left: 3px;
+}      
+.original-description {
+        display: block; /* O utiliza 'none' para ocultar por defecto */
+}
+    
+    /* Agrega esta regla para ocultar la descripción original cuando el description-edit-container está visible */
+.description-edit-container.visible .original-description {
+        display: none;
+}
+.btn-edit-description{
+        border: thin;
+        }
+.form-control {
+        resize: none;
+}
+/* CSS para las imágenes */
+.carousel-inner img {
+        max-width: 100%;
+        height: auto;
+}
+.image-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 10px;
+}
+.image-container {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        padding-bottom: 100%;
+}
+
+.image-container{
+        width: 100%;
+        padding-bottom: 75%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+}
+.card-body.dark,
+.modal-body.dark{
+        background-color: #18191a !important;
+        color: #fff;
+}
+/* CSS para el botón de subir imágenes */
+#LabelElegirImagenes i {
+        display: none;
+      }
+
+/* Versión para celulares */
+
+@media only screen and (max-width: 600px){
+         #btn-new-post-photo{
+        width: 25%;
+        }
+        #LabelElegirImagenes i {
+        display: inline;
+        border: 1px solid #0d6efd; 
+        border-radius: 4px;
+        position: relative;
+        top: 15%;
+        background: #0d6efd;
+        color: white;
+        padding: 0.3rem 1rem;
+              }
+        #InputElegirImagenes {
+                display: none;
+        }    
+        /* CSS para sacar el padding right de los modal fade */
+        /* Se pusieron todas las variables entre comas para hacer el código más legible.
+        .modal.fade corresponde a cuando el modal se está cerrando, .modal.fade.show corresponde
+        a cuando el modal se muestra y .modal-open corresponde a cuando el modal está abierto. */
+        .modal.fade,
+        .modal.fade.show,
+        .modal-open {
+        padding-right: 0px !important;
+        }  
+        /*Sin esta línea de css se aplica un padding-right: 84px automáticamente cuando 
+        una imagen se abre lo cual provoca que cuando este se cierra, produzca un bug. */
+         .modal-backdrop.fade{
+        width: 100%;
+        height: 100%;
+        padding-right: 0px !important;
+        } 
+}
+/* Media Query Para dispositivos menores a 480px */
+@media only screen and (max-width: 480px){
+        #btn-new-post-photo{
+        width: 25%;
+        }
+        .modal.fade,
+        .modal.fade.show,
+        .modal-open {
+        padding-right: 0px !important;
+        }  
+        .modal-backdrop.fade{
+        width: 100%;
+        height: 100%;
+        padding-right: 0px !important;
+        } 
+}
+/* Agregar Media Query para dispositivos mas grandes como 1200px y 1000px */
+@media only screen and (max-width: 1000px){
+        .modal.fade,
+        .modal.fade.show,
+        .modal-open {
+        padding-right: 0px !important;
+        }  
+        .modal-backdrop.fade{
+        width: 100%;
+        height: 100%;
+        padding-right: 0px !important;
+        }                  
+}
+/* Código revisado con el repo de Lucas. */
