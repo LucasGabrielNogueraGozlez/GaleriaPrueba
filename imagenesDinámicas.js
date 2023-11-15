@@ -202,7 +202,7 @@ $(document).ready(function() {
                 container.empty();
 
                 generarBotonesPaginacion(data.totalPaginas, pagina);
-                    generarListadoImagenes(data);
+                generarListadoImagenes(data);
                 // Create a new carousel item for each image uploaded
                 
             },
@@ -213,7 +213,7 @@ $(document).ready(function() {
         });
     }
     //Paginación
-    function generarBotonesPaginacion(totalPaginas, paginaActual) {
+    const generarBotonesPaginacion = (totalPaginas, paginaActual) => {
         var paginationContainer = $("#pagination-container");
         var paginationList = paginationContainer.find("ul.pagination");
         paginationList.empty();
@@ -395,6 +395,42 @@ $(document).ready(function () {
 });
 
 
+$("#search-form").on("submit", function(e) {
+  e.preventDefault(); // Evita que el formulario se envíe de manera tradicional
+
+  var searchTerm = $("#search-input").val();
+
+  $.ajax({
+      url: "buscar_img.php",
+      method: "POST",
+      data: { search: searchTerm },
+      dataType: "json",
+      success: function(data) {
+          if (data.error) {
+              // Manejar el caso de que no se encontraron resultados
+              console.log(data.error);
+          } else {
+              // Manejar el caso de que se encontraron imágenes
+              console.log("Imágenes encontradas:", data);
+      
+              // Limpiar la galería antes de agregar nuevas imágenes
+              var container = $("#image-container"); // El contenedor de imágenes
+              container.empty();
+              
+
+              generarBotonesPaginacion(data.totalPaginas, pagina=1);
+              generarListadoImagenes(data);
+          }
+      },
+      
+      error: function(xhr, status, error) {
+          console.log('Error en la solicitud AJAX:');
+          console.log('Status:', status);
+          console.log('Error:', error);
+      }
+  });
+}); 
+
 
  //Función BotonEliminar
  function BotonEliminar() {
@@ -439,43 +475,6 @@ $(document).ready(function () {
 }
 });
 
-$(document).ready(function() {
-    $("#search-form").on("submit", function(e) {
-        e.preventDefault(); // Evita que el formulario se envíe de manera tradicional
-
-        var searchTerm = $("#search-input").val();
-
-        $.ajax({
-            url: "buscar_img.php",
-            method: "POST",
-            data: { search: searchTerm },
-            dataType: "json",
-            success: function(data) {
-                if (data.error) {
-                    // Manejar el caso de que no se encontraron resultados
-                    console.log(data.error);
-                } else {
-                    // Manejar el caso de que se encontraron imágenes
-                    console.log("Imágenes encontradas:", data);
-            
-                    // Limpiar la galería antes de agregar nuevas imágenes
-                    var container = $("#image-container"); // El contenedor de imágenes
-        container.empty();
-                    
-
-                    generarBotonesPaginacion(data.totalPaginas, pagina=1);
-                        generarListadoImagenes(data);
-                }
-            },
-            
-            error: function(xhr, status, error) {
-                console.log('Error en la solicitud AJAX:');
-                console.log('Status:', status);
-                console.log('Error:', error);
-            }
-        });
-    }); 
-});
 //Cambios revisados con el repo de Lucas.
 
 
