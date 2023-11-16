@@ -550,9 +550,9 @@ $(document).ready(function() {
         descriptionEditContainer.css('display', 'block');
     });
 
-    $(document).on("click", ".cancel-edit", function() {
+    $(document).on("click", ".cancel-edit", function(event) {
         console.log("Botón de cancelación de descripción clickeado");
-
+        event.preventDefault()
         var imageId = $(this).data("image-id");
         var cardBody = $(this).closest('.card-body');
 
